@@ -1,0 +1,71 @@
+<body>
+    <div class="grid-container" >
+        <br>
+        <div class="mat-p">
+            <button class="return" mat-mini-fab color="accent" matTooltip="Volver" aria-label="Volver" color="primary" (click)="onBack()">
+              <mat-icon class="mat-18">arrow_left_alt</mat-icon>
+            </button>
+            </div>
+              <h1 class="mat-p">
+                  Control de mesas
+              </h1>
+
+        <mat-grid-list [cols]="3" rowHeight="12em" gutterSize="10px"  *ngIf="datos" >
+            
+            <mat-grid-tile *ngFor="let item of datos">
+                <mat-card class="dashboard-card">
+                    <mat-card-header>
+                        <mat-card-title style="color:#b32428">
+                            {{item.codigo }}
+
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                        <div> {{ item.estado.descripcion}} - {{ item.capacidad}} Personas
+                        </div>
+                    </mat-card-content>
+                    
+                    <mat-divider class="divider" inset></mat-divider>
+                    <mat-card-actions>
+                    <button class="info" mat-mini-fab color="accent" matTooltip="Detalle Mesa" aria-label="Detalle Mesa" color="primary" (click)="detalleMesa(item.id)">
+              <mat-icon class="mat-18">info</mat-icon>
+              </button>
+              <button class="info" mat-mini-fab color="accent" matTooltip="Gestionar Mesa" aria-label="Gestionar Mesa" color="primary" (click)="gestionarMesa(item.numMesa,item.id)">
+                
+                
+                
+                <mat-icon class="mat-18">class</mat-icon>
+                </button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list [cols]="3" rowHeight="12em" gutterSize="10px" *ngIf="currentUser.user.role=='MESERO'">
+            
+            <mat-grid-tile *ngFor="let item of datos2">
+                <mat-card class="dashboard-card">
+                    <mat-card-header>
+                        <mat-card-title style="color:#b32428">
+                            {{item.codigo }}
+
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                        <div> {{ item.estado.descripcion}} - {{ item.capacidad}} Personas
+                        </div>
+                    </mat-card-content>
+                    
+                    <mat-divider class="divider" inset></mat-divider>
+                    <mat-card-actions>
+                    <button class="info" mat-mini-fab color="accent" matTooltip="Detalle Mesa" aria-label="Detalle Mesa" color="primary" (click)="detalleMesa(item.id)">
+              <mat-icon class="mat-18">info</mat-icon>
+              </button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+    </div>
+    <div class="abajo"></div>
+</body>

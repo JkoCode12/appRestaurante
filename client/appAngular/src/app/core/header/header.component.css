@@ -1,0 +1,41 @@
+[mat-menu-item].is-active,
+[mat-list-item].is-active {
+    background: hsla(0, 0%, 34%, 0.1) !important;
+}
+
+.mat-toolbar {
+    overflow: hidden;
+    background-color: #b32428;
+    height: 100px;
+    width: 100%;
+}
+
+.example-spacer {
+    float: right;
+}
+
+.img-responsive {
+    height: 300px;
+    padding-right: 0px;
+}
+
+.mat-icon {
+    padding-right: 120px;
+}
+
+.mat-button {
+    font-size: 18px;
+    transition-property: background-color;
+    transition-duration: 0.02s;
+    transition-timing-function: linear;
+    transition-delay: 0.01s;
+}
+
+.mat-button:hover {
+    background-color: green;
+}
+
+.matMenu {
+    background-color: white;
+    color: red
+}

@@ -1,0 +1,114 @@
+<body>
+  <div class="container">
+    <br />
+    <div class="mat-p">
+      <button
+        class="return"
+        mat-mini-fab
+        color="accent"
+        matTooltip="Volver"
+        aria-label="Volver"
+        color="primary"
+        (click)="onBack()"
+      >
+        <mat-icon class="mat-18">arrow_left_alt</mat-icon>
+      </button>
+    </div>
+    <h1>Información del pedido</h1>
+
+    <div class="space">
+      <div class="info">
+        <br /><br />
+        <h2>Número de pedido: {{ pedidoInfo.id }}</h2>
+        <table>
+          <tr>
+            <td>
+              Fecha del pedido:
+              {{ pedidoInfo.fechaPedido | date: "dd/MM/yyyy" }}
+            </td>
+            <td>Estado del pedido: {{ pedidoInfo.estado.descripcion }}</td>
+          </tr>
+          <tr>
+            <td>
+              Usuario: {{ pedidoInfo.usuario.nombre }} ({{
+                pedidoInfo.usuario.role
+              }})
+            </td>
+            <td>
+              {{ pedidoInfo.mesa.restaurante.nombre }}, mesa
+              {{ pedidoInfo.mesa.codigo }}
+            </td>
+          </tr>
+        </table>
+        <h2>Detalle del pedido</h2>
+
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Columna nombre -->
+          <ng-container matColumnDef="platillo">
+            <mat-header-cell *matHeaderCellDef> Platillo</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              {{ row.platillo.nombre }}
+            </mat-cell>
+
+            <mat-footer-cell *matFooterCellDef
+              ><br /><br /><br /><br /><br /><br /><br
+            /></mat-footer-cell>
+          </ng-container>
+
+          <!-- Columna precio -->
+          <ng-container matColumnDef="cantidad">
+            <mat-header-cell *matHeaderCellDef> Cantidad</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              {{ row.cantidad }}
+            </mat-cell>
+
+            <mat-footer-cell *matFooterCellDef
+              ><br /><br /><br /><br /><br /><br /><br
+            /></mat-footer-cell>
+          </ng-container>
+
+          <!-- Columna precio -->
+          <ng-container matColumnDef="precio">
+            <mat-header-cell *matHeaderCellDef> Precio</mat-header-cell>
+
+            <mat-cell *matCellDef="let row">
+              {{ row.platillo.precio }}
+            </mat-cell>
+
+            <mat-footer-cell *matFooterCellDef
+              ><br />Subtotal<br /><br />Descuento<br /><br />Total<br /><br
+            /></mat-footer-cell>
+          </ng-container>
+
+          <!-- Columna precio -->
+          <ng-container matColumnDef="subtotal">
+            <mat-header-cell *matHeaderCellDef> Subtotal</mat-header-cell>
+            <mat-cell *matCellDef="let row"> ₡{{ row.total }} </mat-cell>
+
+            <mat-footer-cell *matFooterCellDef>
+              <br />₡{{ pedidoInfo.total }}<br /><br />₡{{
+                (pedidoInfo.descuento / 100) * pedidoInfo.total
+              }}
+              &nbsp; &nbsp; &nbsp; ({{ pedidoInfo.descuento }}%)<br /><br />₡{{
+                (pedidoInfo.total * (100 - pedidoInfo.descuento)) / 100
+              }}<br /><br
+            /></mat-footer-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+          <mat-footer-row
+            *matFooterRowDef="displayedColumns"
+            class="footer-row"
+          ></mat-footer-row>
+        </mat-table>
+
+        <br /><br />
+        <h2 class="center">*** Notas: {{ pedidoInfo.comentarios }} ***</h2>
+        <br /><br />
+      </div>
+    </div>
+
+    <div class="abajo"></div>
+  </div>
+  <div class="abajo"></div>
+</body>

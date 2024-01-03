@@ -1,0 +1,103 @@
+
+
+body {
+  height: 100%;
+  background-image: url("/assets/images/fondo.jpeg");
+  background-repeat: repeat-y;
+  background-size: 100%;
+  display: grid;
+  place-items: center;
+}
+
+
+.shipping-card {
+  min-width: 120px;
+  margin-top: -100%;
+  background-color: white;
+  color: black;
+  width: 400px;
+  height: auto;
+}
+
+.mat-label{
+  width: 100%;
+}
+
+.mat-raised-button{
+  background-color: green;
+  padding: 5px 40px;
+}
+.cancelar{
+  background-color: #b32428;
+}
+
+.mat-radio-button {
+  display: block;
+  margin: 5px 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+::ng-deep.mat-form-field span.mat-form-field-label-wrapper label {
+  color:black !important;
+  font-weight: bold;
+}
+
+::ng-deep.mat-form-field.mat-focused span.mat-form-field-label-wrapper label {
+  color:green !important;
+}
+
+:host /deep/ .mat-select-value-text {
+  color: black !important;
+}
+
+::ng-deep Input.Mat-Input-Element {Color: Rojo; }
+mat-{
+  color: black !important;
+  background-color: white;
+}
+
+::ng-deep .mat-option-text {
+  color: black !important;
+  background-color: white;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: black !important;
+ }
+
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: black!important;
+} 
+
+::ng-deep.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  opacity: 0 !important; /*click effect color change*/
+  background-color: black !important;  }
+  
+  ::ng-deep.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: black !important; /*inner circle color change*/  }
+  
+  ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: black !important; /*outer ring color change*/  }
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: black !important;
+}
+
+

@@ -1,0 +1,80 @@
+    h1 {
+        text-align: center;
+        line-height: 50px;
+        -webkit-text-stroke: 2px #b32428;
+        
+        color: white;
+        font-weight: 900;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: xx-large;
+       
+    }
+    mat-card-title{
+        color:#b32428;
+    }
+    .return {
+        background-color: green
+      }
+    body {
+
+        height: 100%;
+  background-size: 100%;
+  background-image: url("/assets/images/fondo.jpeg");
+  background-repeat: repeat-y;
+        
+    }
+
+    .obtener{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #b32428;
+        padding: 10px 15px;
+    }
+    
+    .abajo{
+        height: 100px;
+    }
+
+    .grid-container {
+        margin-left: 50px;
+        margin-bottom: 50px;
+        margin-right: 50px;
+        height: auto;
+    }
+    
+    .dashboard-card {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        background-color: white;
+    }
+    
+    .more-button {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+    }
+    
+    .dashboard-card-content {
+        text-align: center;
+        color: green;
+    }
+    
+    mat-card-title {
+        color: green;
+    }
+    
+    mat-icon {
+        color: white;
+    }
+    
+    .info {
+        background-color: #b32428;
+    }
+    
+    .divider {
+        background-color: green
+    }

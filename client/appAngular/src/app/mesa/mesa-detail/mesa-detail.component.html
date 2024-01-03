@@ -1,0 +1,38 @@
+
+<body>
+  
+  <div class="container">
+      <br>
+      <div class="mat-p">
+        <button class="return" mat-mini-fab color="accent" matTooltip="Volver" aria-label="Volver" color="primary" (click)="onBack()">
+          <mat-icon class="mat-18">arrow_left_alt</mat-icon>
+        </button>
+        </div>
+        <h1>
+          
+          Información de la mesa {{mesaInfo.codigo}}
+        </h1>
+      
+      
+      <div class="space">
+          <div class="info">
+              <br><br>
+              <p>Id de mesa: {{mesaInfo.id}}</p>
+              <br>
+              <p>{{mesaInfo.restaurante.nombre}}, ubicada en {{mesaInfo.restaurante.direccion}}</p>
+              <br>
+              <p>Capacidad {{mesaInfo.capacidad}} personas</p>
+              <br>
+              <p>La mesa se encuentra en estado: {{mesaInfo.estado.descripcion}}</p>
+              <br>
+              
+          </div>
+          
+      </div>
+
+        
+
+  </div>
+  
+</body>
+

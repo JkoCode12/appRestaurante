@@ -1,0 +1,23 @@
+.main-div{
+    display: grid;
+    place-items: center;
+    margin: 0 auto;
+    background-color: #b32428;
+    color: white;
+    height: auto;
+    width: auto;
+  }
+  .mat-tab-nav-bar{
+    background-color: green;
+    color: white;
+  }
+  body {
+    height: 100%;
+    background-image: url("/assets/images/fondo.jpeg");
+    background-repeat: repeat-y;
+    background-size: 100%;
+    display: grid;
+    place-items: center;
+  }
+  
+

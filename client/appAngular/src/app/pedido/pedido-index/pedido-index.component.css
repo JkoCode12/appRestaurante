@@ -1,0 +1,112 @@
+.full-width,table{
+    background-color: white;
+}
+
+
+mat-paginator{
+    background-color: #b32428;
+    color:white;
+    
+    
+}
+table{
+    width: 100%;
+    border:solid 1px #b32428;
+
+}
+
+th{
+
+    background-color: white;
+    color:#b32428;
+    font-weight: bold;
+
+    width: 19%;
+}
+.ver{
+    width: 5%;
+}
+
+td{
+    height: 100px;
+    color:black;
+    
+}
+.return {
+    background-color: #b32428;
+  }
+h1 {
+        text-align: center;
+        line-height: 50px;
+        -webkit-text-stroke: 2px #b32428;
+        color: white;
+        font-weight: 900;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: xx-large;
+       
+    }
+    
+    .full-width {
+
+        background-image: url("/assets/images/fondo.jpeg");
+        background-repeat: repeat-y;
+        height: 100%;
+        background-size: 100%;
+        border-radius: 0%;
+    }
+
+    .mat-card-content{
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    html{
+        height: 100%;
+        width: 100%;
+    }
+    
+    .abajo{
+        height: 100px;
+    }
+
+    .grid-container {
+        margin-left: 50px;
+        margin-bottom: 50px;
+        margin-right: 50px;
+    }
+    
+    .dashboard-card {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        background-color: white;
+    }
+    
+    .more-button {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+    }
+    
+    .dashboard-card-content {
+        text-align: center;
+        color: green;
+    }
+    
+    mat-card-title {
+        color: green;
+    }
+
+    mat-icon {
+        color: white
+    }
+    
+    .info {
+        background-color: green;
+    }
+    
+    .divider {
+        background-color: #b32428;
+    }

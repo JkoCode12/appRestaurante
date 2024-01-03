@@ -1,0 +1,95 @@
+<mat-card class="full-width">
+
+  <mat-card-content>
+    <div class="mat-p">
+      <button
+        class="return"
+        mat-mini-fab
+        color="accent"
+        matTooltip="Volver"
+        aria-label="Volver"
+        color="primary"
+        (click)="onBack()"
+      >
+        <mat-icon class="mat-18">arrow_left_alt</mat-icon>
+      </button>
+    </div>
+    <h1 class="mat-p">Información de Usuarios</h1>
+    <div class="agregar">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a>Agregar nuevo usuario</a>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <button
+        class="nuevo"
+        mat-mini-fab
+        matTooltip="Crear Platillo"
+        aria-label="Crear Platillo"
+        color="primary"
+        (click)="registrarUser()"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <br>
+    
+    <div class="mat-elevation-z8" *ngIf="dataSource">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        class="full-width-table"
+        matSort
+        matSortStart="desc"
+        aria-label="Elements"
+      >
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+      </ng-container>
+
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+          <td mat-cell *matCellDef="let row">{{ row.nombre }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Rol</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.role }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="direccion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Direccion</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.direccion }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="restaurante">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Restaurante</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.restaurante.nombre }}
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator
+        #paginator
+        [length]="dataSource?.data?.length"
+        [pageIndex]="0"
+        [pageSize]="5"
+        [pageSizeOptions]="[3, 5, 10]"
+        aria-label="Seleccione una pagina"
+      >
+      </mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

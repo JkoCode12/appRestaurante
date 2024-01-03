@@ -1,0 +1,105 @@
+<mat-toolbar *ngIf="isAutenticated">
+  <a href="" (click)="irInicio()"
+    ><img class="img-responsive" src="./assets/images/logo.png"
+  /></a>
+
+  <div style="width: 100%">
+    <a mat-button [routerLink]="['/']" routerLinkActive="is-active">Inicio</a>
+    <a
+      mat-button
+      *ngIf="currentUser.user.role == 'ADMIN'"
+      [routerLink]="['/mesa']"
+      routerLinkActive="is-active"
+      >Control de Mesas</a
+    >
+    <a
+      mat-button
+      *ngIf="currentUser.user.role == 'MESERO'"
+      (click)="mesas(currentUser.user.restauranteId)" 
+      routerLinkActive="is-active"
+      >Control de Mesas</a
+    >
+
+    <a mat-button *ngIf="currentUser.user.role != 'MESERO'"
+    [routerLink]="['/platillo']" routerLinkActive="is-active"
+      >Platillos</a
+    >
+    <a
+      mat-button
+      *ngIf="currentUser.user.role == 'ADMIN'"
+      [routerLink]="['/pedido']"
+      routerLinkActive="is-active"
+      >Pedidos</a
+    >
+    <a
+      mat-button
+      *ngIf="currentUser.user.role == 'ADMIN'"
+      [matMenuTriggerFor]="menu2"
+      routerLinkActive="is-active"
+      >Mantenimientos</a
+    >
+    <mat-menu #menu2="matMenu">
+      <button
+        [routerLink]="'/platillo/all'"
+        [routerLinkActive]="'mat-raised-button'"
+      >
+        Platillos
+      </button>
+      
+      <button
+        mat-menu-item
+        [routerLink]="'/mesa/all'"
+        [routerLinkActive]="'mat-raised-button'"
+      >
+        Mesas
+      </button>
+      <button
+        mat-menu-item
+        [routerLink]="'/usuario/all'"
+        [routerLinkActive]="'mat-raised-button'"
+      >
+        Usuarios
+      </button>
+    </mat-menu>
+    <a
+      mat-button
+      [routerLink]="['/home/acerca-de']"
+      routerLinkActive="is-active"
+      >Acerca De</a
+    >
+
+    <div class="example-spacer">
+      <!-- Enlaces de la aplicación -->
+      <!-- https://fonts.google.com/icons -->
+      <!--https://material.angular.io/guide/typography-->
+      <button mat-icon-button matBadgeColor="accent" [matBadge]="qtyItems.toString()" 
+       [routerLink]="'/pedidoCliente'" [routerLinkActive]="'mat-raised-button'"  aria-label="Cantidad">
+     <mat-icon>shopping_cart</mat-icon>
+   </button>
+
+      &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+      <span class="mat-caption" *ngIf="isAutenticated">
+        {{ currentUser.user.email }}</span
+      >
+      <button mat-icon-button [matMenuTriggerFor]="menu3">
+        <mat-icon [ngStyle]="{ color: isAutenticated ? ' white' : '#9E9E9E' }"
+          >person</mat-icon
+        >
+      </button>
+
+      <mat-menu #menu3="matMenu">
+        <a mat-menu-item *ngIf="!isAutenticated" (click)="login()">
+          <mat-icon>person_add</mat-icon>
+          <span> Login </span>
+        </a>
+        <a mat-menu-item *ngIf="isAutenticated" (click)="logout()">
+          <mat-icon>person_remove</mat-icon>
+          <span> Logout </span>
+        </a>
+      </mat-menu>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+</mat-toolbar>
+

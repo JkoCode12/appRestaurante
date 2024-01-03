@@ -1,0 +1,48 @@
+<body>
+  
+  <div class="container">
+      <br>
+      <div class="mat-p">
+        <button class="return" mat-mini-fab color="accent" matTooltip="Volver" aria-label="Volver" color="primary" (click)="onBack()">
+          <mat-icon class="mat-18">arrow_left_alt</mat-icon>
+        </button>
+        </div>
+        <h1>
+          
+          Información del {{platilloInfo.nombre}}
+        </h1>
+      
+      <br>
+      <div class="space">
+          <div class="info">
+              <br><br>
+              <p>Descripcion: {{platilloInfo.descripcion}}</p>
+              <br>
+              <p>Categoría: {{platilloInfo.categoria.descripcion}}</p>
+              <br>
+              <h2>Ingredientes:</h2>
+              
+              <ul *ngIf="platilloInfo.ingredientes">
+                <li *ngFor="let item of platilloInfo.ingredientes"> {{item.cantidad}} {{item.ingrediente.descripcion}}</li>
+             </ul>
+             <br>
+             <button class="button"
+             mat-mini-fab color="accent"
+             matTooltip="Comprar"
+             aria-label="Comprar"
+             color="primary"
+             (click)="comprar(platilloInfo.id)"
+           >
+           
+           <mat-icon class="mat-18">add_shopping_cart</mat-icon>
+           </button>
+          </div>
+          
+      </div>
+
+      <div class="abajo"></div>
+
+  </div>
+  
+</body>
+

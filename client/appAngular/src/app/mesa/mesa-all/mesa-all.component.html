@@ -1,0 +1,116 @@
+<html>
+<mat-card class="full-width">
+  <mat-card-content>
+    <div class="mat-p">
+      <button
+        class="return"
+        mat-mini-fab
+        color="accent"
+        matTooltip="Volver"
+        aria-label="Volver"
+        color="primary"
+        (click)="onBack()"
+      >
+        <mat-icon class="mat-18">arrow_left_alt</mat-icon>
+      </button>
+    </div>
+    <h1 class="mat-p">Mantenimiento Mesas</h1>
+
+    <div class="agregar">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a>Agregar nueva mesa</a>
+
+      &nbsp;&nbsp;&nbsp;
+
+      <button
+        class="nuevo"
+        mat-mini-fab
+        matTooltip="Crear Mesa"
+        aria-label="Crear Mesa"
+        color="primary"
+        (click)="crearMesa()"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    &nbsp;&nbsp;&nbsp;
+    <div class="mat-elevation-z8" *ngIf="dataSource">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        class="full-width-table"
+        matSort
+        matSortStart="desc"
+        aria-label="Elements"
+      >
+        <!-- Columna fecha -->
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Codigo de mesa
+          </th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.codigo }}
+          </td>
+        </ng-container>
+
+        <!-- Columna nombre -->
+        <ng-container matColumnDef="capacidad">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Capacidad</th>
+          <td mat-cell *matCellDef="let row">{{ row.capacidad }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Estado de la mesa
+          </th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.estado.descripcion }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="restaurantes">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Localidad de la mesa
+          </th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.restaurante.nombre }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef>Modificar</th>
+          <td mat-cell *matCellDef="let row">
+            &nbsp;&nbsp;&nbsp;
+            <button
+              class="actualizar"
+              mat-mini-fab
+              matTooltip="Actualizar Mesa"
+              aria-label="Actualizar Mesa"
+              color="primary"
+              (click)="actualizarMesa(row.id)"
+            >
+              <mat-icon class="mat-18">edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator
+        #paginator
+        [length]="dataSource?.data?.length"
+        [pageIndex]="0"
+        [pageSize]="5"
+        [pageSizeOptions]="[3, 5, 10]"
+        aria-label="Seleccione una pagina"
+      >
+      </mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>
+</html>

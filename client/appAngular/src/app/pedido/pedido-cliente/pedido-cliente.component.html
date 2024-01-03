@@ -1,0 +1,68 @@
+<mat-card class="full-width">
+  <h1 class="mat-p">Pedido de {{currentUser.user.nombre}}</h1>
+  <mat-card-content>
+    <p class="green">Fecha: {{fecha | date: 'dd/MM/yyyy'}}</p>
+  </mat-card-content>
+
+  <mat-card-content *ngIf="dataSource">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+       
+        <ng-container matColumnDef="producto">
+          <mat-header-cell *matHeaderCellDef> Platillo </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.product.nombre}} 
+          </mat-cell>
+          
+          <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="precio">
+          <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
+          <mat-cell *matCellDef="let element"> ₡{{ element.precio}} </mat-cell>
+          <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="cantidad">
+          <mat-header-cell *matHeaderCellDef> Cantidad </mat-header-cell>
+          <mat-cell *matCellDef="let element"> 
+            <mat-form-field appearance="fill">
+                <input matInput id="cantidad " type="number" class="form-control mb-2" 
+                [(ngModel)]="element.cantidad"
+                (change)="actualizarCantidad(element)"
+                > 
+            </mat-form-field> 
+            
+        </mat-cell>
+        <mat-footer-cell *matFooterCellDef >Total </mat-footer-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="subtotal">
+          <mat-header-cell *matHeaderCellDef> Subtotal </mat-header-cell>
+          <mat-cell *matCellDef="let element"> ₡{{ element.subtotal}} </mat-cell>
+          <mat-footer-cell *matFooterCellDef >₡{{total}}</mat-footer-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <mat-header-cell *matHeaderCellDef> Acciones</mat-header-cell>
+            <mat-cell *matCellDef="let element"> 
+              <button class="return" mat-mini-fab color="accent" color="primary" (click)="eliminarItem(element)">
+                <mat-icon class="mat-18">delete</mat-icon>
+              </button>
+            </mat-cell>
+            <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+          </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        <mat-footer-row *matFooterRowDef="displayedColumns" class="footer-row"></mat-footer-row>
+      </mat-table>
+      <br>
+      <br>
+      <button class="comprar" mat-raised-button color="primary" (click)="registrarOrden()" >
+        Comprar
+        <mat-icon>shopping_bag</mat-icon> 
+        </button>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    
+  </mat-card-actions>
+</mat-card>
